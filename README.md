@@ -3,6 +3,9 @@
 
 Chezmoi 是一个跨端的配置文件管理工具，可以帮助你在多台设备之间同步配置文件。
 
+<img width="659" height="433" alt="image" src="https://github.com/user-attachments/assets/c5ddedf7-288c-4226-a109-c173540f2815" />
+> 比git还多一个工作区，需要画图理解一下
+
 ## 日常常用操作
 编辑配置
 
