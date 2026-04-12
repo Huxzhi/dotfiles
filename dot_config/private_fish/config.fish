@@ -20,19 +20,21 @@ if status is-interactive
     # 关闭欢迎语
     set -g fish_greeting ""
 
-    # --- 缩写 (推荐用 abbr，比 alias 更快且有输入反馈) ---
-    abbr -a n nvim
-    abbr -a cc claude
-    abbr -a gs 'git status'
-    abbr -a cls clear
-    abbr -a pac-clean 'sudo pacman -Rns (pacman -Qdtq)'
-
     # --- 启动 Starship (增加安全判断) ---
     # 只有当 starship 命令存在时才加载，防止报错卡死
     if type -q starship
         starship init fish | source
     end
+    fastfetch -c examples/31.jsonc
+
 end
+
+# --- 缩写 (推荐用 abbr，比 alias 更快且有输入反馈) ---
+abbr -a n nvim
+abbr -a cc claude
+abbr -a gs 'git status'
+abbr -a cls clear
+abbr -a pac-clean 'sudo pacman -Rns (pacman -Qdtq)'
 
 function y
     set tmp (mktemp -t "yazi-cwd.XXXXXX")
