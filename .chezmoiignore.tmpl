@@ -1,0 +1,17 @@
+{{ if ne .chezmoi.os "windows" }}
+# 如果当前系统不是 Windows，就忽略 AppData
+AppData/
+{{ end }}
+
+{{ if eq .chezmoi.os "windows" }}
+# 如果当前系统是 windows，可以忽略 Mac 特有的文件（如果有）
+# .config/
+{{ end }}
+
+
+{{ if eq .chezmoi.os "linux" }}
+{{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+# 在 Linux (WSL) 下既不想要 AppData，也不想要 rclone 配置
+.config/rclone/
+{{   end }}
+{{ end }}
