@@ -1,5 +1,5 @@
 # 指定启动命令为 fish，并加上 --login 参数
-command = /usr/bin/fish --login
+command = fish --login
 
 theme = Whimsy
 
