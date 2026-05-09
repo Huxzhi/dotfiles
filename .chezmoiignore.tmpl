@@ -1,6 +1,9 @@
 {{ if ne .chezmoi.os "windows" }}
 # 如果当前系统不是 Windows，就忽略 AppData
 AppData/
+Documents/
+Documents/WindowsPowerShell/
+Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1
 {{ end }}
 
 {{ if eq .chezmoi.os "windows" }}

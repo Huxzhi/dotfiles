@@ -9,9 +9,6 @@ if test -d /opt/homebrew/bin
     /opt/homebrew/bin/brew shellenv | source
 end
 
-set -gx GALLIUM_DRIVER d3d12
-set -gx MESA_D3D12_DEFAULT_ADAPTER_NAME 1
-
 # 设置默认编辑器为 nvim
 set -gx EDITOR nvim
 set -gx VISUAL nvim
@@ -42,6 +39,8 @@ abbr -a cc claude
 abbr -a gs 'git status'
 abbr -a cls clear
 abbr -a pac-clean 'sudo pacman -Rns (pacman -Qdtq)'
+abbr -a ff fastfetch
+abbr -a rclone-s "rclone mount secret: ~/mount-s --vfs-cache-mode full --daemon"
 
 function y
     set tmp (mktemp -t "yazi-cwd.XXXXXX")
