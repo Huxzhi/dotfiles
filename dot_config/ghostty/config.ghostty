@@ -1,0 +1,29 @@
+# 指定启动命令为 fish，并加上 --login 参数
+command = /usr/bin/fish --login
+
+theme = Whimsy
+
+font-family = "JetBrains Maple Mono"
+font-size = 13.5
+
+cursor-style = block
+cursor-style-blink = true
+
+background = 000000
+background-opacity = 0.8
+# 禁用固定背景颜色，允许透明度生效
+window-decoration = true
+
+# (可选) 增加模糊效果，这会让代码更清晰
+# 注意：这在某些 Linux 桌面环境下可能需要特定的混成器支持
+background-blur = true
+
+# 窗口管理
+confirm-close-surface = false
+
+
+# 告诉终端使用正确的识别码
+# 这能确保 Neovim 的 termguicolors 正确识别透明请求
+term = xterm-ghostty
+custom-shader = ~/.config/ghostty/shaders/in-game-crt-cursor.glsl
+
