@@ -9,9 +9,20 @@ if test -d /opt/homebrew/bin
     /opt/homebrew/bin/brew shellenv | source
 end
 
+zoxide init fish --cmd cd | source
+
 # 设置默认编辑器为 nvim
 set -gx EDITOR nvim
 set -gx VISUAL nvim
+
+# 强制 Firefox 使用 Wayland
+set -gx MOZ_ENABLE_WAYLAND 1
+
+# 强制 Qt 软件使用 Wayland
+set -gx QT_QPA_PLATFORM wayland
+
+# 强制 GTK 软件使用 Wayland
+set -gx GDK_BACKEND wayland
 
 # Bun 配置
 set -gx BUN_INSTALL "$HOME/.bun"
@@ -49,6 +60,41 @@ function y
         builtin cd -- "$cwd"
     end
     rm -f -- "$tmp"
+end
+
+function cat
+    command bat $argv
+end
+function ls
+    command eza --icons $argv
+end
+
+function lt
+    command eza --icons --tree $argv
+end
+# grub
+abbr grub 'LANGUAGE=en_US.UTF-8 LANG=en_US.UTF-8 sudo grub-mkconfig -o /boot/grub/grub.cfg'
+# 小黄鸭补帧 需要steam安装正版小黄鸭
+abbr lsfg 'LSFG_PROCESS="miyu"'
+# fa运行fastfetch
+
+abbr reboot 'systemctl reboot'
+function sl
+    command sl | lolcat
+end
+function 滚
+    sysup
+end
+function raw
+    command ~/.config/scripts/random-anime-wallpaper.sh $argv
+end
+
+function 安装
+    command yay -S $argv
+end
+
+function 卸载
+    command yay -Rns $argv
 end
 
 # >>> conda initialize >>>
